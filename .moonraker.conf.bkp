@@ -46,6 +46,24 @@ install_script = install.sh
 [file_manager]
 enable_object_processing = True
 
+[update_manager client mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[spoolman]
+server = http://192.168.1.117:7912
+sync_rate = 5
+
+[update_manager klipper_tmc_autotune]
+type = git_repo
+channel = dev
+path = ~/klipper_tmc_autotune
+origin = https://github.com/andrewmcgr/klipper_tmc_autotune.git
+managed_services = klipper
+primary_branch = main
+install_script = install.sh
+
 [update_manager Klippain-ShakeTune]
 type = git_repo
 origin = https://github.com/Frix-x/klippain-shaketune.git
@@ -55,4 +73,22 @@ requirements = requirements.txt
 system_dependencies = system-dependencies.json
 primary_branch = main
 managed_services = klipper
+
+[update_manager katapult]
+type = git_repo
+path = /home/pi/katapult
+origin = https://github.com/Arksine/katapult.git
+
+[update_manager timelapse]
+type = git_repo
+primary_branch = main
+path = ~/moonraker-timelapse
+origin = https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services = klipper moonraker
+
+[timelapse]
+flip_x = True
+flip_y = True
+output_path = ~/timelapse/
+ffmpeg_binary_path = /usr/bin/ffmpeg
 
